@@ -1,6 +1,9 @@
 $colors: (primary: #01b0fe,
+  primary-light: #4dd0e1,
   secondary: #455a64,
   tertiary: #78909c,
+  shadow-header: rgba(29, 188, 243, 0.35),
+  shadow: rgba(69, 90, 100, 0.14),
 );
 
 @function color($color-name) {
