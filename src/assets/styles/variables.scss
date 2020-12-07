@@ -1,0 +1,8 @@
+$colors: (primary: #01b0fe,
+  secondary: #455a64,
+  tertiary: #78909c,
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
