@@ -1,5 +1,7 @@
 <template lang="pug">
 TheHeader
+main
+  router-view
 </template>
 
 <script lang="ts">
