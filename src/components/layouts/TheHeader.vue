@@ -6,7 +6,6 @@ header
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/variables";
 header {
   background-image: linear-gradient(
     to right,
