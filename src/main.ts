@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
+import './registerServiceWorker'
+import router from '@/router/router'
 import App from './App.vue'
 import "./assets/styles/index.scss"
-import './registerServiceWorker'
-import store from './store'
 
 const app = createApp(App)
-app.use(store)
+app.use(router)
 
 app.mount('#app')
