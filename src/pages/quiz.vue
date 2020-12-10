@@ -4,7 +4,7 @@
     p {{`#${current}`}} {{`of ${total}`}}
     p {{`${current - 1 - score}`}} {{score}}
   .progress
-    p Progress Bar
+    p Progress Bara
   BaseCard.question
     h2.text-center {{question.description}}
     ul
