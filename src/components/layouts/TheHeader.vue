@@ -7,15 +7,11 @@ header
 
 <style lang="scss" scoped>
 header {
-  background-image: linear-gradient(
-    to right,
-    color(primary-light),
-    color(primary)
-  );
+  background-image: linear-gradient(to right, color(primary-light), color(primary));
   box-shadow: 0 4px 21px 0 color(shadow-header);
 }
 
 .container {
-  height: 80px;
+  height: 5rem;
 }
 </style>

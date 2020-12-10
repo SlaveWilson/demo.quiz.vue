@@ -1,5 +1,6 @@
 <template lang="pug">
 button
+  slot
 </template>
 
 <style lang="scss" scoped>

@@ -1,5 +1,5 @@
 <template lang="pug">
-TheHeader
+TheHeader.header
 main
   router-view
 </template>
@@ -9,9 +9,9 @@ import { defineComponent } from "vue";
 import TheHeader from "./components/layouts/TheHeader.vue";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
     TheHeader,
   },
-})
+});
 </script>
