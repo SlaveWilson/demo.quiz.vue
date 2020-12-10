@@ -43,7 +43,7 @@ export default defineComponent({
   flex-direction: column;
   margin-top: 1.3rem;
   margin-bottom: 3rem;
-  height: calc(100vh - 9.3rem);
+  height: calc(100vh - 9.3rem); // Header: 5rem + margin-top: 1.3rem + margin-bottom: 3rem
 }
 
 .progress {
