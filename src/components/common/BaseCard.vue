@@ -25,6 +25,7 @@
 }
 
 .bottom {
+  overflow: auto;
   background-color: white;
   padding: 2em;
   flex: 1;
