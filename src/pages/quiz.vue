@@ -1,8 +1,14 @@
 <template lang="pug">
 .container.flex
-  .flex.justify-between
-    p {{`#${current}`}} {{`of ${total}`}}
-    p {{`${current - 1 - score}`}} {{score}}
+  .total.flex.justify-between.items-end
+    p #[span.current.strong(style="font-size: 1.5rem") {{`#${current}`}}] {{`of ${total}`}}
+    .flex.items-center
+      .flex.items-center
+        img(src="@/assets/images/icons/wrong.svg", height="15", width="15")
+        p(style="line-height: 15px;margin-left: 6px") {{`${current - 1 - score}`}} 
+      .flex.items-center(style="margin-left: 23px")
+        img(src="@/assets/images/icons/correct.svg", height="15", width="15")
+        p(style="line-height: 15px;margin-left: 6px") {{score}}
   .progress
     p Progress Bar
   BaseCard.question
@@ -49,6 +55,16 @@ export default defineComponent({
   margin-top: 1.3rem;
   margin-bottom: 3rem;
   height: calc(100vh - 9.3rem); // Header: 5rem + margin-top: 1.3rem + margin-bottom: 3rem
+}
+
+.total {
+  .current {
+    color: color(secondary);
+  }
+
+  p {
+    color: color(tertiary);
+  }
 }
 
 .progress {
