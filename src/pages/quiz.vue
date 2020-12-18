@@ -9,8 +9,7 @@
       .flex.items-center(style="margin-left: 23px")
         img(src="@/assets/images/icons/correct.svg", height="15", width="15")
         p(style="line-height: 15px;margin-left: 6px") {{score}}
-  .progress
-    p Progress Bar
+  ProgressBar.progress(:val="current/total")
   BaseCard.question
     template(v-slot:top)
       h2.text-center {{question.description}}
@@ -30,12 +29,16 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseCard from "@/components/common/BaseCard.vue";
+import BaseButton from "@/components/common/BaseButton.vue";
+import ProgressBar from "@/components/common/ProgressBar.vue";
 import useQuiz from "@/hooks/quiz";
 
 export default defineComponent({
   name: "quiz",
   components: {
     BaseCard,
+    BaseButton,
+    ProgressBar
   },
   setup() {
     const { total, current, score, question } = useQuiz();
