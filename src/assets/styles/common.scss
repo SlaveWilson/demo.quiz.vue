@@ -1,6 +1,7 @@
 .container {
   margin: auto;
   padding: 0 24px;
+  max-width: 768px;
 }
 
 .flex {
@@ -25,4 +26,8 @@
 
 .text-center {
   text-align: center;
+}
+
+.strong {
+  font-weight: bold;
 }

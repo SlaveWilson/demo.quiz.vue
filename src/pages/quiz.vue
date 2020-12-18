@@ -4,11 +4,16 @@
     p {{`#${current}`}} {{`of ${total}`}}
     p {{`${current - 1 - score}`}} {{score}}
   .progress
-    p Progress Bara
+    p Progress Bar
   BaseCard.question
-    h2.text-center {{question.description}}
-    ul
-      li(v-for="(answer, index) in question.answers") {{String.fromCharCode(index + 65)}} {{answer.content}}
+    template(v-slot:top)
+      h2.text-center {{question.description}}
+    template(v-slot:bottom)
+      ul
+        li(v-for="(answer, index) in question.answers")
+          .flex
+            p.strong(style="font-size: 1rem; padding-right: 0.5em") {{String.fromCharCode(index + 65)}} 
+            p(style="font-size: 0.8rem; line-height:1.2") {{answer.content}}
   .choices.flex.justify-between
     BaseButton A
     BaseButton B
@@ -53,6 +58,11 @@ export default defineComponent({
 .question {
   margin-top: 1rem;
   flex: 1;
+}
+ul {
+  >* + * {
+    padding-top: 2em;
+  }
 }
 
 .choices {
