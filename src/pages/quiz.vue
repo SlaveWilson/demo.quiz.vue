@@ -20,10 +20,14 @@
             p.strong(style="font-size: 1rem; padding-right: 0.5em") {{String.fromCharCode(index + 65)}} 
             p(style="font-size: 0.8rem; line-height:1.2") {{answer.content}}
   .choices.flex.justify-between
-    BaseButton A
-    BaseButton B
-    BaseButton C
-    BaseButton IMG
+    BaseButton
+      p.strong(style="font-size:1rem") A
+    BaseButton
+      p.strong(style="font-size:1rem") B
+    BaseButton
+      p.strong(style="font-size:1rem") C
+    BaseButton
+      p.strong(style="font-size:1rem;") IMG
 </template>
 
 <script lang="ts">
@@ -86,8 +90,5 @@ ul {
 
 .choices {
   margin-top: 1.4rem;
-  * {
-    flex-basis: 25%;
-  }
 }
 </style>
