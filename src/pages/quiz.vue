@@ -20,13 +20,10 @@
             p.strong(style="font-size: 1rem; padding-right: 0.5em") {{String.fromCharCode(index + 65)}} 
             p(style="font-size: 0.8rem; line-height:1.2") {{answer.content}}
   .choices.flex.justify-between
-    BaseButton(:isSelected="selected === 'A'", @click.default="selected = 'A'")
-      p.strong(style="font-size:1rem") A
-    BaseButton(:isSelected="selected === 'B'", @click.default="selected = 'B'")
-      p.strong(style="font-size:1rem") B
-    BaseButton(:isSelected="selected === 'C'", @click.default="selected = 'C'")
-      p.strong(style="font-size:1rem") C
-    BaseButton.btn-gradient
+    template(v-for="(answer, index) in question.answers")
+      BaseButton(:isSelected="selected === index", @click.default="selected = index")
+        p.strong(style="font-size:1rem") {{String.fromCharCode(index + 65)}}
+    BaseButton.btn-gradient(@click.default="onClickSubmit(selected)")
       img(src="@/assets/images/icons/submit.svg", width=25, height=25, style="padding-top: 3px")
 </template>
 
@@ -47,12 +44,24 @@ export default defineComponent({
   setup() {
     const { total, current, score, question } = useQuiz();
     const selected = ref();
+
+    const onClickSubmit = function (option: number | undefined) {
+      if (option === undefined) return;
+
+      if (question.value?.answers[option!].isCorrect) {
+        console.log("You are correct");
+      } else {
+        console.log("Sorry, you are wrong");
+      }
+    };
+
     return {
       total,
       current,
       score,
       question,
       selected,
+      onClickSubmit,
     };
   },
 });
