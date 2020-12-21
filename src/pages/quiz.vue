@@ -20,18 +20,18 @@
             p.strong(style="font-size: 1rem; padding-right: 0.5em") {{String.fromCharCode(index + 65)}} 
             p(style="font-size: 0.8rem; line-height:1.2") {{answer.content}}
   .choices.flex.justify-between
-    BaseButton
+    BaseButton(:isSelected="selected === 'A'", @click.default="selected = 'A'")
       p.strong(style="font-size:1rem") A
-    BaseButton
+    BaseButton(:isSelected="selected === 'B'", @click.default="selected = 'B'")
       p.strong(style="font-size:1rem") B
-    BaseButton
+    BaseButton(:isSelected="selected === 'C'", @click.default="selected = 'C'")
       p.strong(style="font-size:1rem") C
-    BaseButton
-      p.strong(style="font-size:1rem;") IMG
+    BaseButton.btn-gradient
+      img(src="@/assets/images/icons/submit.svg", width=25, height=25, style="padding-top: 3px")
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import BaseCard from "@/components/common/BaseCard.vue";
 import BaseButton from "@/components/common/BaseButton.vue";
 import ProgressBar from "@/components/common/ProgressBar.vue";
@@ -42,15 +42,17 @@ export default defineComponent({
   components: {
     BaseCard,
     BaseButton,
-    ProgressBar
+    ProgressBar,
   },
   setup() {
     const { total, current, score, question } = useQuiz();
+    const selected = ref();
     return {
       total,
       current,
       score,
       question,
+      selected,
     };
   },
 });
@@ -83,12 +85,16 @@ export default defineComponent({
   flex: 1;
 }
 ul {
-  >* + * {
+  > * + * {
     padding-top: 2em;
   }
 }
 
 .choices {
   margin-top: 1.4rem;
+}
+
+.btn-gradient {
+  background-image: linear-gradient(to right, color(primary-light), color(primary));
 }
 </style>
