@@ -21,6 +21,7 @@ button {
   height: 3.5em;
   width: 3.5em;
   box-shadow: 0 4px 21px 0 color(shadow-card);
+  cursor: pointer;
 }
 
 button:focus {

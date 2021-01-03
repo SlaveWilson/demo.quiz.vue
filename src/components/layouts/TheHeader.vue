@@ -2,7 +2,8 @@
 header
   .container.flex.justify-between.items-center
     h1 Drivers License Tests
-    img(src="@/assets/images/icons/cross.svg", width="20", height="20")
+    router-link(to="/", v-show="$route.name !== 'Index'")
+      img(src="@/assets/images/icons/cross.svg", width="20", height="20")
 </template>
 
 <style lang="scss" scoped>

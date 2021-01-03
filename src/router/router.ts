@@ -9,11 +9,17 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: "Index",
       component: Index
     },
     {
       path: '/quiz',
+      name: "Quiz",
       component: Quiz
+    },
+    {
+      path: "/:catchAll(.*)",
+      redirect: "/",
     }
   ]
 })
