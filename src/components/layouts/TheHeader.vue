@@ -99,7 +99,7 @@ button {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
