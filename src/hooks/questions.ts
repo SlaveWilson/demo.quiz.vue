@@ -11,25 +11,87 @@ export interface Question {
   answers: Answer[]
 }
 
-const _question: Question = {
-  id: 1,
-  description: "每100毫升尿液內含酒精量不可超過......",
-  answers: [{
-    content: "22 毫克",
-    isCorrect: false
-  }, {
-    content: "107 毫克",
-    isCorrect: false
-  }, {
-    content: "67 毫克",
-    isCorrect: true
-  }]
-}
+const _question: Question[] = [
+  {
+    id: 1,
+    description: "每100毫升尿液內含酒精量不可超過......",
+    answers: [{
+      content: "22 毫克",
+      isCorrect: false
+    }, {
+      content: "107 毫克",
+      isCorrect: false
+    }, {
+      content: "67 毫克",
+      isCorrect: true
+    }]
+  },
+  {
+    id: 2,
+    description: "每100毫升尿液內含酒精量不可超過......",
+    answers: [{
+      content: "22 毫克",
+      isCorrect: false
+    }, {
+      content: "107 毫克",
+      isCorrect: false
+    }, {
+      content: "67 毫克",
+      isCorrect: true
+    }]
+  },
+  {
+    id: 3,
+    description: "每100毫升尿液內含酒精量不可超過......",
+    answers: [{
+      content: "22 毫克",
+      isCorrect: false
+    }, {
+      content: "107 毫克",
+      isCorrect: false
+    }, {
+      content: "67 毫克",
+      isCorrect: true
+    }]
+  },
+  {
+    id: 4,
+    description: "每100毫升尿液內含酒精量不可超過......",
+    answers: [{
+      content: "22 毫克",
+      isCorrect: false
+    }, {
+      content: "107 毫克",
+      isCorrect: false
+    }, {
+      content: "67 毫克",
+      isCorrect: true
+    }]
+  },
+  {
+    id: 5,
+    description: "每100毫升尿液內含酒精量不可超過......",
+    answers: [{
+      content: "22 毫克",
+      isCorrect: false
+    }, {
+      content: "107 毫克",
+      isCorrect: false
+    }, {
+      content: "67 毫克",
+      isCorrect: true
+    }]
+  },
+]
 
 export default function useQuestions() {
-  const question: Ref<Question | undefined> = ref()
+  const questions: Ref<Question[] | undefined> = ref()
 
-  question.value = _question
+  questions.value = _question
 
-  return { question }
+  const getQuestionById = function (id: number) {
+    return questions.value?.find(question => question.id === id)
+  }
+
+  return { questions, getQuestionById }
 }

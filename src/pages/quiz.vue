@@ -9,7 +9,7 @@
       .flex.items-center(style="margin-left: 23px")
         img(src="@/assets/images/icons/correct.svg", height="15", width="15")
         p(style="line-height: 15px;margin-left: 6px") {{score}}
-  ProgressBar.progress(:val="current/total")
+  ProgressBar.progress(:val="(current-1)/total")
   BaseCard.question
     template(v-slot:top)
       h2.text-center {{question.description}}
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watchEffect } from "vue";
 import BaseCard from "@/components/common/BaseCard.vue";
 import BaseButton from "@/components/common/BaseButton.vue";
 import ProgressBar from "@/components/common/ProgressBar.vue";
@@ -42,24 +42,26 @@ export default defineComponent({
     ProgressBar,
   },
   setup() {
-    const { total, current, score, question } = useQuiz();
+    const { total, current, score, pool, getQuestionById, answerQuestion } = useQuiz();
     const selected = ref();
+    const question = ref(getQuestionById(pool.value[current.value - 1]));
 
     const onClickSubmit = function (option: number | undefined) {
       if (option === undefined) return;
-
-      if (question.value?.answers[option!].isCorrect) {
-        console.log("You are correct");
-      } else {
-        console.log("Sorry, you are wrong");
-      }
+      answerQuestion(question.value!, option);
+      selected.value = -1;
     };
+
+    watchEffect(() => {
+      question.value = getQuestionById(pool.value[current.value - 1]);
+    });
 
     return {
       total,
       current,
       score,
       question,
+      pool,
       selected,
       onClickSubmit,
     };
