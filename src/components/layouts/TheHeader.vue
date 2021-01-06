@@ -24,7 +24,6 @@ import { defineComponent, ref } from "vue";
 import BaseButton from "@/components/common/BaseButton.vue";
 
 export default defineComponent({
-  name: "header",
   components: {
     BaseButton,
   },

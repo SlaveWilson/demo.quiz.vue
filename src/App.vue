@@ -1,5 +1,5 @@
 <template lang="pug">
-TheHeader.header
+TheHeader
 main
   router-view
 </template>
