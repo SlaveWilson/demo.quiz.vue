@@ -17,6 +17,10 @@ module.exports = {
     appleMobileWebAppCache: "yes",
     manifestOptions: {
       background_color: "#42b983"
+    },
+    workboxOptions: {
+      swSrc: 'service-worker.js',
+      exclude: [/\.map$/, /_redirects/],
     }
   },
   configureWebpack: () => {
