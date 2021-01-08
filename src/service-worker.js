@@ -1,11 +1,9 @@
-self.addEventListener('install', (event) => {
-  console.log('Inside the install handler:', event);
-});
+self.__precacheManifest = [].concat(self.__precacheManifest || []);
+workbox.precaching.suppressWarnings();
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-self.addEventListener('activate', (event) => {
-  console.log('Inside the activate handler:', event);
-});
-
-self.addEventListener(fetch, (event) => {
-  console.log('Inside the fetch handler:', event);
-});
+self.addEventListener("message", msg => {
+  if (msg.data.action == "skipWaiting") {
+    self.skipWaiting();
+  }
+})
