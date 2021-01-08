@@ -18,6 +18,7 @@ module.exports = {
     manifestOptions: {
       background_color: "#42b983"
     },
+    workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       swSrc: 'service-worker.js',
       exclude: [/\.map$/, /_redirects/],
